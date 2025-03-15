@@ -4,7 +4,7 @@ import joblib
 import streamlit as st
 
 # Load Model
-model = joblib.load('C:/Users/chiom/Documents/Axia Africa Store/web scraping/Cancer Prediction/skin_cancer_prediction_model.pkl')
+model = joblib.load('skin_cancer_prediction_model.pkl')
 
 def performance_prediction(input_data):
     column_names = ['radius_mean', 'texture_mean', 'perimeter_mean', 'area_mean',
