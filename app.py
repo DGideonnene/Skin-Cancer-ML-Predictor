@@ -38,7 +38,7 @@ def main():
     </style>""", unsafe_allow_html=True)
 
     st.title("🔬 Skin Cancer Prediction")
-    st.image("national-cancer-institute-NFvdKIhxYlU-unsplash.jpg", caption="Medical Diagnosis", use_column_width=True)
+    st.image("national-cancer-institute-NFvdKIhxYlU-unsplash.jpg", caption="Medical Diagnosis", use_container_width=True)
     st.write("Enter the following measurements for a medical diagnosis.")
 
     # Create columns for a clean UI
