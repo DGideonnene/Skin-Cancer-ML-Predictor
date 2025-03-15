@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import joblib
 import streamlit as st
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Load Model
 model = joblib.load('skin_cancer_prediction_model.pkl')
@@ -36,6 +38,7 @@ def main():
     </style>""", unsafe_allow_html=True)
 
     st.title("🔬 Skin Cancer Prediction")
+    st.image("national-cancer-institute-NFvdKIhxYlU-unsplash.jpg", use_column_width=True)
     st.write("Enter the following measurements for a medical diagnosis.")
 
     # Create columns for a clean UI
@@ -51,7 +54,7 @@ def main():
 
     for i, field in enumerate(fields):
         with [col1, col2, col3][i % 3]:
-            value = st.text_input(f"{field.replace('_', ' ').capitalize()}", key=field)
+            value = st.number_input(f"{field.replace('_', ' ').capitalize()}", key=field, step=0.01)
             inputs.append(value)
 
     prediction = ""
@@ -66,6 +69,14 @@ def main():
     if prediction:
         st.subheader("Diagnosis Result:")
         st.write(prediction)
+
+        # Visualization
+        st.subheader("Severity Analysis")
+        severity = ['Benign', 'Malignant']
+        counts = [1 if 'Malignant' in prediction else 0, 1 if 'Benign' in prediction else 0]
+        fig, ax = plt.subplots()
+        sns.barplot(x=severity, y=counts, palette="coolwarm", ax=ax)
+        st.pyplot(fig)
 
 if __name__ == '__main__':
     main()
