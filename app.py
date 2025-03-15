@@ -30,14 +30,14 @@ def performance_prediction(input_data):
 
 # Streamlit UI
 def main():
-    st.set_page_config(page_title="Skin Cancer Prediction", layout="wide")
+    st.set_page_config(page_title="Breast Cancer Prediction", layout="wide")
     st.markdown("""<style>
         .main {background-color: #f4f4f9;}
         h1 {color: #007bff; text-align: center;}
         .stButton>button {width: 100%; background-color: #007bff; color: white;}
     </style>""", unsafe_allow_html=True)
 
-    st.title("🔬 Skin Cancer Prediction")
+    st.title("🔬 Breast Cancer Prediction")
     st.image("national-cancer-institute-NFvdKIhxYlU-unsplash.jpg", caption="Medical Diagnosis", use_container_width=True)
     st.write("Enter the following measurements for a medical diagnosis.")
 
